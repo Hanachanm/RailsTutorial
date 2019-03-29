@@ -1,0 +1,29 @@
+box: ruby:2.4.2
+build:
+  steps:
+    - install-packages:
+        packages: nodejs
+
+    - script:
+        name: install rubygems
+        code: gem install rubocop rake
+    - script:
+        name: rubocop
+        code: rubocop
+    - script:
+        name: bundle config
+        code: bundle config build.nokogiri --use-system-libraries
+
+    - bundle-install
+
+    - script:
+        name: db:schema:load
+        code: RAILS_ENV=test bin/rails db:schema:load
+    - script:
+        name: test
+        code: RAILS_ENV=test bin/rails test
+
+  after-steps:
+    - slack-notifier:
+        url: $SLACK_WEBHOOK_URL
+        channel: railstutorial
