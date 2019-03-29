@@ -1,4 +1,4 @@
-box: ruby:2.4.2
+box: ruby:2.6.2
 build:
   steps:
     - install-packages:
@@ -6,7 +6,7 @@ build:
 
     - script:
         name: install rubygems
-        code: gem install rubocop rake
+        code: gem install bundler rubocop rake
     - script:
         name: rubocop
         code: rubocop
@@ -17,8 +17,8 @@ build:
     - bundle-install
 
     - script:
-        name: db:schema:load
-        code: RAILS_ENV=test bin/rails db:schema:load
+        name: db:migrate
+        code: RAILS_ENV=test bin/rails db:migrate
     - script:
         name: test
         code: RAILS_ENV=test bin/rails test
@@ -26,4 +26,3 @@ build:
   after-steps:
     - slack-notifier:
         url: $SLACK_WEBHOOK_URL
-        channel: railstutorial
