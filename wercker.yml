@@ -16,12 +16,12 @@ build:
 
     - bundle-install
 
-    - script:
-        name: db:migrate
-        code: RAILS_ENV=test bin/rails db:migrate
-    - script:
-        name: test
-        code: RAILS_ENV=test bin/rails test
+#     - script:
+#         name: db:migrate
+#         code: RAILS_ENV=test bin/rails db:migrate
+#     - script:
+#         name: test
+#         code: RAILS_ENV=test bin/rails test
 
   after-steps:
     - slack-notifier:
