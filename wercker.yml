@@ -16,6 +16,7 @@ build:
 
     - bundle-install
 
+# アクティブレコードを作成したらコメントを外して利用すること
 #     - script:
 #         name: db:migrate
 #         code: RAILS_ENV=test bin/rails db:migrate
