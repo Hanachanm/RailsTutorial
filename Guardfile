@@ -10,8 +10,7 @@ guard :minitest, spring: "bin/rails test", all_on_start: false do
     resource_tests(matches[1])
   end
   watch(%r{^app/views/([^/]*?)/.*\.html\.erb$}) do |matches|
-    ["test/controllers/#{matches[1]}_controller_test.rb"] +
-    integration_tests(matches[1])
+    ["test/controllers/#{matches[1]}_controller_test.rb"] + ntegration_tests(matches[1])
   end
   watch(%r{^app/helpers/(.*?)_helper\.rb$}) do |matches|
     integration_tests(matches[1])
@@ -30,8 +29,7 @@ guard :minitest, spring: "bin/rails test", all_on_start: false do
     'test/integration/users_signup_test.rb'
   end
   watch(%r{app/views/users/*}) do
-    resource_tests('users') +
-    ['test/integration/microposts_interface_test.rb']
+    resource_tests('users') + ['test/integration/microposts_interface_test.rb']
   end
 end
 # 与えられたリソースに対応する統合テストを返す
