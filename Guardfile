@@ -32,6 +32,7 @@ guard :minitest, spring: "bin/rails test", all_on_start: false do
     resource_tests('users') + ['test/integration/microposts_interface_test.rb']
   end
 end
+
 # 与えられたリソースに対応する統合テストを返す
 def integration_tests(resource = :all)
   if resource == :all
@@ -40,10 +41,12 @@ def integration_tests(resource = :all)
     Dir["test/integration/#{resource}_*.rb"]
   end
 end
+
 # 与えられたリソースに対応するコントローラのテストを返す
 def controller_test(resource)
   "test/controllers/#{resource}_controller_test.rb"
 end
+
 # 与えられたリソースに対応するすべてのテストを返す
 def resource_tests(resource)
   integration_tests(resource) << controller_test(resource)
