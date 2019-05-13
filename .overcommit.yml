@@ -1,0 +1,5 @@
+PreCommit:
+  RuboCop:
+    description: "Rubocopの実行"
+    enabled: true
+    command: ['bundle', 'exec', 'rubocop']
