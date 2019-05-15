@@ -5,10 +5,10 @@
   <%= form_for(:session, url: login_path) do |f| %>
 
     <%= f.label :email %>
-    <%= f.email_field :emial, class: 'form-control' %>
+    <%= f.email_field :email, class: 'form-control' %>
 
     <%= f.label :password %>
-    <%= f.email_field :password, class: 'form-control' %>
+    <%= f.password_field :password, class: 'form-control' %>
 
     <%= f.submit "Login", class: "btn btn-primary" %>
   <% end %>
