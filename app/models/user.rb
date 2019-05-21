@@ -38,7 +38,7 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
-private
+  private
 
   # メールアドレスをすべて小文字にする
   def downcase_email
