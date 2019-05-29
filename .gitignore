@@ -52,3 +52,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# アップロードされたテスト画像を無視する
+/public/uploads
