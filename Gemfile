@@ -26,6 +26,7 @@ group :development do
   gem 'listen',                '3.1.5'
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
+  gem 'spring-commands-rspec'
 end
 
 group :test do
@@ -34,6 +35,11 @@ group :test do
   gem 'minitest-reporters',       '1.1.14'
   gem 'guard',                    '2.13.0'
   gem 'guard-minitest',           '2.4.4'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'capybara', '~> 2.13'
+  gem 'launchy'
+  gem 'selenium-webdriver'
 end
 
 group :production do
